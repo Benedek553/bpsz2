@@ -4,12 +4,12 @@ ini_set('display_errors', 1);
 
 require 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ugy_nev"])) {
-    $ugy_nev = trim($_POST["ugy_nev"]);
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cim"])) {
+    $cim = trim($_POST["cim"]);
 
-    if (!empty($ugy_nev)) {
+    if (!empty($cim)) {
         try {
-            $stmt = $conn->prepare("INSERT INTO ugyek (cim) VALUES (:cim)");
+            $stmt = $conn->prepare("INSERT INTO Ugyek (cim) VALUES (:cim)");
             $stmt->bindParam(':cim', $cim, PDO::PARAM_STR);
             $stmt->execute();
             echo "Sikeres mentés!";
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ugy_nev"])) {
             echo "Hiba: " . $e->getMessage();
         }
     } else {
-        echo "Hiba: Az ügy neve nem lehet üres!";
+        echo "Hiba: A cím nem lehet üres!";
     }
 } else {
     echo "Hiba: Hibás kérés!";
