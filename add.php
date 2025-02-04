@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["ugy_nev"])) {
 
     if (!empty($ugy_nev)) {
         try {
-            $stmt = $conn->prepare("INSERT INTO ugyek (ugy_nev) VALUES (:ugy_nev)");
-            $stmt->bindParam(':ugy_nev', $ugy_nev, PDO::PARAM_STR);
+            $stmt = $conn->prepare("INSERT INTO ugyek (cim) VALUES (:cim)");
+            $stmt->bindParam(':cim', $cim, PDO::PARAM_STR);
             $stmt->execute();
             echo "Sikeres mentés!";
         } catch (PDOException $e) {
