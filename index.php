@@ -26,11 +26,11 @@
             <tbody>
                 <?php
                 require 'db.php';
-                $query = $conn->query("SELECT * FROM Ugyek ORDER BY id DESC");
+                $query = $conn->query("SELECT * FROM ugyek2 ORDER BY id DESC");
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     echo "<tr>
                             <td>{$row['id']}</td>
-                            <td>{$row['ugy_nev']}</td>
+                            <td>{$row['cim']}</td>
                             <td>
                                 <a href='delete.php?id={$row['id']}' class='btn btn-danger btn-sm'>Törlés</a>
                             </td>
